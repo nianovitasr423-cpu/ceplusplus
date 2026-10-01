@@ -1,0 +1,22 @@
+name: Build EXE
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile C++
+        run: g++ nama.cpp -o nama.exe
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: nama-exe
+          path: nama.exe
