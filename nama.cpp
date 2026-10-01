@@ -14,6 +14,7 @@ int main() {
     cout<<nama<<endl;
     cout<<"Sekolahmu di: ";
     cout<<sekolah;
+    system("pause");
     
     return 0;
 }
