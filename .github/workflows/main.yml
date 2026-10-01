@@ -11,7 +11,26 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Compile
-        run: g++ nama.cpp -o nama.exe -static-libgcc -static-libstdc++
+        run: g++ nama.cpp -o nama.exe -static -static-libgcc -static-libstdc++
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: nama-exe
+          path: nama.exename: Build C++
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile
+        run: g++ nama.cpp -o nama.exe -static -static-libgcc -static-libstdc++
 
       - name: Upload
         uses: actions/upload-artifact@v4
