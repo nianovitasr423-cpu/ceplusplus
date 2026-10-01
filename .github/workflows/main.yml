@@ -1,9 +1,7 @@
-name: Build EXE
+name: Build C++
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
 
 jobs:
   build:
@@ -12,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compile C++
-        run: g++ nama.cpp -o nama.exe
+      - name: Compile
+        run: g++ nama.cpp -o nama.exe -static-libgcc -static-libstdc++
 
-      - name: Upload EXE
+      - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: nama-exe
